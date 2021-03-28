@@ -2,7 +2,7 @@ import logging
 import time
 from typing import Tuple
 
-from pynput.mouse import Controller, Button
+from pynput import mouse, keyboard
 from singleton_decorator import singleton
 
 from hass_raspi_remote.settings import settings
@@ -11,7 +11,8 @@ from hass_raspi_remote.settings import settings
 @singleton
 class MouseController:
     def __init__(self):
-        self.mouse = Controller()
+        self.mouse = mouse.Controller()
+        self.keyboard = keyboard.Controller()
         self.last_signal_time = time.time()
         self.last_xy_signal = (0, 0)
         self._logger = logging.getLogger(self.__class__.__name__)
@@ -44,10 +45,14 @@ class MouseController:
         self.update_signal(x, y, curr_signal_time)
 
     def left_click(self):
-        self.mouse.click(Button.left, 1)
+        self.mouse.click(mouse.Button.left, 1)
 
     def double_click(self):
-        self.mouse.click(Button.left, 2)
+        self.mouse.click(mouse.Button.left, 2)
 
     def right_click(self):
-        self.mouse.click(Button.right, 1)
+        self.mouse.click(mouse.Button.right, 1)
+
+    def press_space(self):
+        self.keyboard.press(keyboard.Key.SPACE)
+        self.keyboard.release(keyboard.Key.SPACE)
