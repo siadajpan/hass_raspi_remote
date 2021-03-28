@@ -54,5 +54,5 @@ class MouseController:
         self.mouse.click(mouse.Button.right, 1)
 
     def press_space(self):
-        self.keyboard.press(keyboard.Key.SPACE)
-        self.keyboard.release(keyboard.Key.SPACE)
+        self.keyboard.press(keyboard.Key.space)
+        self.keyboard.release(keyboard.Key.space)
