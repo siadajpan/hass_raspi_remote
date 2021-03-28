@@ -13,7 +13,7 @@ class Messages:
     MOUSE_LEFT = Mqtt.TOPIC + "left_click"
     MOUSE_DOUBLE = Mqtt.TOPIC + "double_click"
     MOUSE_RIGHT = Mqtt.TOPIC + "right_click"
-    MOUSE_RIGHT = Mqtt.TOPIC + "press_space"
+    PRESS_SPACE = Mqtt.TOPIC + "press_space"
 
 
 class Mouse:

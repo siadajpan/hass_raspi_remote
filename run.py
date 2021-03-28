@@ -6,6 +6,7 @@ from mqtt_utils.message_manager import MessageManager
 from hass_raspi_remote.messages.mouse_double_click import MouseDoubleClick
 from hass_raspi_remote.messages.mouse_left_click import MouseLeftClick
 from hass_raspi_remote.messages.mouse_position import MousePosition
+from hass_raspi_remote.messages.mouse_press_space import KeyboardPressSpace
 from hass_raspi_remote.messages.mouse_right_click import MouseRightClick
 from hass_raspi_remote.settings import settings
 
@@ -22,7 +23,7 @@ if __name__ == '__main__':
         level=logging.DEBUG)
 
     MESSAGES = [MousePosition(), MouseLeftClick(), MouseRightClick(),
-                MouseDoubleClick()]
+                MouseDoubleClick(), KeyboardPressSpace()]
     message_manager = MessageManager(MESSAGES)
     message_manager.update_credentials(settings.Mqtt.USERNAME,
                                        settings.Mqtt.PASSWORD)
